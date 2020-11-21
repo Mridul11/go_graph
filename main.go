@@ -9,6 +9,7 @@ import ("fmt"
 
 func setupRoutes(app *fiber.App){
 	app.Get("/api/v1/posts", p.Posts)
+	app.Get("/api/v1/post/:id", p.FindPostbyId)
 }
 
 func main(){
