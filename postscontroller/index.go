@@ -4,7 +4,6 @@ import (
 	"github.com/gofiber/fiber"
 )
 
-func Posts(c *fiber.Ctx){
-	// msg : = "printin from controller"
+func Posts(c *fiber.Ctx)	{
 	c.Send(" Hello, World 👋!")
 }
