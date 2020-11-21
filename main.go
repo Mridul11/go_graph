@@ -2,11 +2,18 @@ package main
 
 import ("fmt" 
 	m "github.com/web_apis/models"
-	c "github.com/web_apis/controllers"
+	p "github.com/web_apis/postscontroller"
+	"github.com/gofiber/fiber"
+
 )
 
+func setupRoutes(app *fiber.App){
+	app.Get("/api/v1/posts", p.Posts)
+}
 
 func main(){
+	app := fiber.New()
+
 	mridul := m.Person{"Mridul", "Misrha", "mmisra2991@gmail.com", "password"}
 	ch := make(chan m.Person)
 	go mridul.Fullname(ch)
@@ -18,5 +25,7 @@ func main(){
 
 	college := m.College{"brights institutes", "cs", "behind seva hospotal", mridul}
 	m.Information(&college)
-	c.Index()
+	
+	setupRoutes(app)
+	app.Listen(3000)
 }
