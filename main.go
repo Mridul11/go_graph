@@ -1,6 +1,7 @@
 package main
 
-import ("fmt" 
+import (
+	"fmt" 
 	m "github.com/web_apis/models"
 	p "github.com/web_apis/postscontroller"
 	"github.com/gofiber/fiber"
