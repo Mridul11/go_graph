@@ -5,6 +5,5 @@ import (
 )
 
 func Posts(c *fiber.Ctx)	{
-	// msg : = "printin from controller"
 	c.Send(" Hello, World 👋!")
 }
