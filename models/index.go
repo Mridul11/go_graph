@@ -1,30 +1,36 @@
 package models 
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+)
+
+var (
+	DBConn  *gorm.DB
+)
 
 type Person struct{
-	Firstname string
-	Lastname string 
-	Email string
-	Password string  
+	gorm.Model
+	Firstname string `json:"firstname"`
+	Lastname string `json:"lastname"`
+	Email string `json:"email"`
+	Password string  `json:"password"`
 }
 
 type College struct{
-	Name string
-	Branches string
-	Address string
-	Chairman Person
-}// method, since it is bound to reciever
-
-type Post struct{
-	Title string 
-	Content string
-	Author Person 
+	gorm.Model
+	Name string `json:"name"`
+	Branches string `json:"branches"`
+	Address string `json:"address"`
+	Chairman Person `json: "chairman"`
 }
 
-func (p *Person) Fullname(c chan Person){
-	c <- Person{"Mridul", "Misrha", "mmisra2991@gmail.com", "password"}
-	fmt.Println(p.Firstname + p.Lastname)
+type Post struct{
+	gorm.Model
+	Title string `json:"title"`
+	Content string `json:"content"`
+	Author Person `gorm:"embedded"`
 }
 
 func Count(c chan int, age int){
