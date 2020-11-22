@@ -19,11 +19,12 @@ type Person struct{
 }
 
 type College struct{
+	gorm.Model
 	Name string `json:"name"`
 	Branches string `json:"branches"`
 	Address string `json:"address"`
 	Chairman Person `json: "chairman"`
-}// method, since it is bound to reciever
+}
 
 type Post struct{
 	gorm.Model
