@@ -12,7 +12,7 @@ var (
 
 type Person struct{
 	gorm.Model
-	Firstname string `json:"id"`
+	Firstname string `json:"firstname"`
 	Lastname string `json:"lastname"`
 	Email string `json:"email"`
 	Password string  `json:"password"`
@@ -30,7 +30,7 @@ type Post struct{
 	gorm.Model
 	Title string `json:"title"`
 	Content string `json:"content"`
-	Author Person `json:"author"`
+	Author Person `gorm:"embedded"`
 }
 
 func Count(c chan int, age int){

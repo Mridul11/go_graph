@@ -6,7 +6,7 @@ import (
 	m "github.com/web_apis/models"
 )
 
-var mridul = m.Person{Firstname: "Mridul", Lastname: "Mishra", Email: "m@gmail.com", Password: "123123"}
+var mridul = m.Person{Firstname: "qweqwe", Lastname: "qweqwe", Email: "vqwegmail.com", Password: "123123"}
 // var vipul = m.Person{Firstname: "Vipul", Lastname: "Mishra", Email: "v@gmail.com", Password: "123123"}
 
 
@@ -26,8 +26,8 @@ func Posts(c *fiber.Ctx) error{
 func AddPost(c *fiber.Ctx) error{
 	db := m.DBConn
 	var post m.Post 
-	post.Title = "Title 2"
-	post.Content = "Content 2"
+	post.Title = "Title 3"
+	post.Content = "Content 3"
 	post.Author = mridul
 	db.Create(&post)
 	return c.JSON(post)
